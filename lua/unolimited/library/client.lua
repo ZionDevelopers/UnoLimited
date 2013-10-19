@@ -22,7 +22,7 @@
 -- Save Client Limits
 unoLimited.saveClientLimits = function ()
 	-- Add Animation
-	unoLimited.GUI.panel:SetVisible(false)
+	unoLimited.GUI.panel:SetVisible( false )
 	-- Delete Current Group
 	unoLimited.GUI.currentGroup = nil
 	-- Clear Selection
@@ -32,7 +32,7 @@ unoLimited.saveClientLimits = function ()
 end
 
 -- Send Limits to Server
-unoLimited.sendLimits = function (ply)
+unoLimited.sendLimits = function ( ply )
 	net.Start("UnoLimited")	
 	net.WriteTable(unoLimited.groups)
 	net.SendToServer()

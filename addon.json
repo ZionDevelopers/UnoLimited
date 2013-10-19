@@ -1,0 +1,22 @@
+{
+	"title"		:	"UnoLimited",
+	"type"		:	"tool",
+	"tags"		:	[ "admin", "build" ],
+	"description":	"UnoLimited is a ULX Module to change user groups spawn limits.",
+	"ignore"	:
+	[
+		"*.svn*",
+		"*.txt",
+		".git*",
+		".project",
+		".gitignore",
+		".buildpath",
+		".settings*",
+		"git-hooks-pre-commit",
+		"gitrid.sh",
+		"LICENSE",
+		"README.md",
+		"logo.jpg",
+		"logo.fw.png"
+	]
+}

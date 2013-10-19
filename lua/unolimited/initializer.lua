@@ -20,21 +20,21 @@
 -- Version 2.5.0 - 18-10-2013 11:52 PM
 
 -- Add Net ID to the Pool
-util.AddNetworkString("UnoLimited")
+util.AddNetworkString( "UnoLimited" )
 
 -- Check if vON Exists
 if von == nil then
-	include("von.lua")
+	include( "von.lua" )
 end
 
 -- Require Libraries
-include("unolimited/library/shared.lua")
-include("unolimited/library/server.lua")
+include( "unolimited/library/shared.lua" )
+include( "unolimited/library/server.lua" )
 
 -- Load Current Saved Limits
 unoLimited.loadSave()
 
 -- Send Limits to Player
-hook.Add("PlayerInitialSpawn","UnoLimited-Send", unoLimited.sendLimits)
+hook.Add( "PlayerInitialSpawn", "UnoLimited-Send", unoLimited.sendLimits )
 -- Receive Player's Limits
-net.Receive("UnoLimited", unoLimited.receiveLimits)
+net.Receive( "UnoLimited", unoLimited.receiveLimits )

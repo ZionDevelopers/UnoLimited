@@ -21,18 +21,18 @@
 
 -- Setup Main Vars
 unoLimited = {}
-unoLimited.groups = {superadmin = -1, admin = 2, operator = 1.5}
+unoLimited.groups = { superadmin = -1, admin = 2, operator = 1.5 }
 unoLimited.version = "2.5.0"
 unoLimited.accessFlag = "unolimited manager"
 
 -- Send Files to Client 
 AddCSLuaFile()
-AddCSLuaFile("autorun/client/unolimited.lua")
-AddCSLuaFile("unolimited/library/shared.lua")
-AddCSLuaFile("unolimited/library/client.lua")
+AddCSLuaFile( "autorun/client/unolimited.lua" )
+AddCSLuaFile( "unolimited/library/shared.lua" )
+AddCSLuaFile( "unolimited/library/client.lua" )
 
 -- If Run on SERVER
 if SERVER then
 	-- Require Library
-	include("unolimited/initializer.lua")
+	include( "unolimited/initializer.lua" )
 end

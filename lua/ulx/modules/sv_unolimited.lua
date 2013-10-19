@@ -23,23 +23,23 @@
 if ULib ~= nil then
 	
 	-- Show StartUp Info
-	Msg( "//  UnoLimited v"..unoLimited.version.."        //\n")
+	Msg( "//  UnoLimited v" .. unoLimited.version .. "        //\n")
 	
 	-- Register ULIB Flag
-	ULib.ucl.registerAccess(unoLimited.accessFlag, {"superadmin"}, "Give Manager Access to UnoLimited", "UnoLimited")
+	ULib.ucl.registerAccess( unoLimited.accessFlag, { "superadmin" }, "Give Manager Access to UnoLimited", "UnoLimited" )
 
 	-- Get Limit
-	unoLimited.getLimit = function (ply, str)
+	unoLimited.getLimit = function ( ply, str )
 		-- Get Player's Group
 		local group = ply:GetUserGroup()
 		
 		-- Default Limit is 1x
-		local finalLimit = GetConVarNumber("sbox_max"..str)
+		local finalLimit = GetConVarNumber( "sbox_max"..str )
 		
 		-- Check if Game is Singleplayer and Group is Set
-		if not game.SinglePlayer() or unoLimited.groups[group] ~= nil then
+		if not game.SinglePlayer() or unoLimited.groups[ group ] ~= nil then
 			-- Get Limit Multiplier
-			local mult = tonumber(unoLimited.groups[group])				
+			local mult = tonumber( unoLimited.groups[ group ] )				
 			
 			-- Check if Limits was Disabled
 			if mult == -1 then
@@ -48,11 +48,16 @@ if ULib ~= nil then
 			-- Check if Multiplier is valid
 			elseif mult > 0 then			
 				-- The Final Limit Calculation
-				finalLimit = math.floor(mult * GetConVarNumber("sbox_max"..str))
+				finalLimit = math.floor( mult * GetConVarNumber( "sbox_max" .. str ) )
 			end
-		else
+		-- Check if Game is SinglePlayer
+		elseif game.SinglePlayer() then
 			-- Disable Limits if Game is Single Player
 			finalLimit = -1
+		-- check if group is not set
+		elseif unoLimited.groups[ group ] == nil then
+			-- Define Standard Limit
+			finalLimit = 1
 		end
 		
 		-- Return the Current Limit
@@ -60,39 +65,42 @@ if ULib ~= nil then
 	end
 	
 	-- Hander, Limit Handler
-	unoLimited.handler = function (ply, str)
+	unoLimited.handler = function ( ply, str )
 		-- Get Player Limit
-		local limit = unoLimited.getLimit(ply, str)
+		local limit = unoLimited.getLimit( ply, str )
 
-		-- Always allow if multiplier is -1
+		-- Disable the Spawn Limits if multiplier is -1
 		if limit == -1 then
 			return true
 		end
-
-		if ply:GetCount(str) < limit or limit < 0 then
+		
+		-- Check if Player hit the Spawn Count
+		if ply:GetCount( str ) < limit or limit < 0 then
 			return true
 		end
-
-		ply:LimitHit(str)
+		
+		-- Send a Hint about the Hit to player
+		ply:LimitHit( str )
 
 		return false
 	end
-
-	local meta = FindMetaTable("Player")
 	
-	-- Setup
+	-- Get Player MetaTable
+	local meta = FindMetaTable( "Player" )
+	
+	-- Setup Check Limit
 	function meta:CheckLimit( str )
 		-- No limits in single player
 		if not game.SinglePlayer() then 	
 			-- Get Limit
-			local limit = unoLimited.getLimit(self, str)
+			local limit = unoLimited.getLimit( self, str )
 			
 			-- Check if Limit is Enabled
 			if limit > 0 then	
 				-- Check if Limit was Reached	
-				if self:GetCount(str) > limit-1 then 
+				if self:GetCount( str ) > limit - 1 then 
 					-- Hit Limit
-					self:LimitHit(str) 
+					self:LimitHit( str ) 
 					-- Return False to block player to spawn
 					return false 
 				end
@@ -104,34 +112,34 @@ if ULib ~= nil then
 	end
 	
 	-- Setup Spawn Ragdoll Handler
-	hook.Add("PlayerSpawnRagdoll","UnoLimited-Ragdoll", function (ply)
-		return unoLimited.handler(ply, "ragdolls")
+	hook.Add( "PlayerSpawnRagdoll","UnoLimited-Ragdoll", function ( ply )
+		return unoLimited.handler( ply, "ragdolls" )
 	end)
 	
 	-- Setup Spawn Prop Handler
-	hook.Add("PlayerSpawnProp", "UnoLimited-Prop", function (ply)
-		return unoLimited.handler(ply, "props")
+	hook.Add( "PlayerSpawnProp", "UnoLimited-Prop", function ( ply )
+		return unoLimited.handler( ply, "props" )
 	end)
 	
 	-- Setup Spawn Effect Handler
-	hook.Add("PlayerSpawnEffect", "UnoLimited-Effect", function (ply)
-		return unoLimited.handler(ply, "effects")
+	hook.Add( "PlayerSpawnEffect", "UnoLimited-Effect", function ( ply )
+		return unoLimited.handler( ply, "effects" )
 	end)
 	
 	-- Setup Spawn Vehicle Handler
-	hook.Add("PlayerSpawnVehicle", "UnoLimited-Vehicle", function (ply)
-		return unoLimited.handler(ply, "vehicles")
+	hook.Add( "PlayerSpawnVehicle", "UnoLimited-Vehicle", function ( ply )
+		return unoLimited.handler( ply, "vehicles" )
 	end)
 	
 	-- Setup Spawn NPC Handler
-	hook.Add("PlayerSpawnNPC", "UnoLimited-NPC", function(ply)
-		return unoLimited.handler(ply, "npcs")
+	hook.Add( "PlayerSpawnNPC", "UnoLimited-NPC", function( ply )
+		return unoLimited.handler( ply, "npcs" )
 	end)
 	
 	-- Setup Spawn SENT Handler
-	hook.Add("PlayerSpawnSENT", "UnoLimited-SENT", function(ply)
-		return unoLimited.handler(ply, "sents")
+	hook.Add( "PlayerSpawnSENT", "UnoLimited-SENT", function( ply )
+		return unoLimited.handler( ply, "sents" )
 	end)
 else
-	Msg( "\n ** UnoLimited v"..unoLimited.version.." REQUIRES ULX v3.51+ .. Aborting\n\n")
+	Msg( "\n ** UnoLimited v"..unoLimited.version.." REQUIRES ULX v3.51+ .. Aborting\n\n" )
 end

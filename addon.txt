@@ -2,10 +2,10 @@
 {
 	"name"				"Ulysses NoLimited"
 	"version"			"2.5"
-	"up_date"			"15/10/2013"
+	"up_date"			"19/10/2013"
 	"author_name"			"Nexus [BR]"
 	"author_email"			"talk@nexusbr.net"
 	"author_url"			"http://www.nexusbr.net/"
-	"info"				"Allows groups to have variable / no spawn limits"
+	"info"				"Allow admins to change User Groups Spawn Limits"
 	"override"			"0"
 }
