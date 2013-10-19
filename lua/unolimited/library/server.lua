@@ -17,7 +17,7 @@
 -- Former Contributors: Megiddo and JamminR
 --
 -- $Id$
--- Version 2.5.0 - 18-10-2013 11:52 PM
+-- Version 2.5.1 - 19-10-2013 12:51 PM
 
 -- Save Vars
 unoLimited.saveDir = "unolimited"
@@ -42,7 +42,8 @@ unoLimited.loadSave = function ()
 		-- Save
 		unoLimited.save()	
 	end
-		
+	
+	-- Get UnoLimited Groups table from Save File	
 	unoLimited.groups = von.deserialize( file.Read( unoLimited.saveFile, "DATA" ) )
 end
 

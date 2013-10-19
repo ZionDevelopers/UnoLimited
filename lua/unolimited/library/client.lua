@@ -17,7 +17,7 @@
 -- Former Contributors: Megiddo and JamminR
 --
 -- $Id$
--- Version 2.5.0 - 18-10-2013 11:52 PM
+-- Version 2.5.1 - 19-10-2013 12:51 PM
 
 -- Save Client Limits
 unoLimited.saveClientLimits = function ()
@@ -34,7 +34,7 @@ end
 -- Send Limits to Server
 unoLimited.sendLimits = function ( ply )
 	net.Start("UnoLimited")	
-	net.WriteTable(unoLimited.groups)
+	net.WriteTable( unoLimited.groups )
 	net.SendToServer()
 end
 
