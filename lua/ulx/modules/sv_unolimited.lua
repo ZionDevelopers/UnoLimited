@@ -113,32 +113,44 @@ if ULib ~= nil then
 	
 	-- Setup Spawn Ragdoll Handler
 	hook.Add( "PlayerSpawnRagdoll","UnoLimited-Ragdoll", function ( ply )
-		return unoLimited.handler( ply, "ragdolls" )
+		if !unoLimited.handler( ply, "ragdolls" ) then
+			return false
+		end
 	end)
 	
 	-- Setup Spawn Prop Handler
 	hook.Add( "PlayerSpawnProp", "UnoLimited-Prop", function ( ply )
-		return unoLimited.handler( ply, "props" )
+		if !unoLimited.handler( ply, "props" ) then
+			return false
+		end
 	end)
 	
 	-- Setup Spawn Effect Handler
 	hook.Add( "PlayerSpawnEffect", "UnoLimited-Effect", function ( ply )
-		return unoLimited.handler( ply, "effects" )
+		if !unoLimited.handler( ply, "effects" ) then
+			return fase
+		end
 	end)
 	
 	-- Setup Spawn Vehicle Handler
 	hook.Add( "PlayerSpawnVehicle", "UnoLimited-Vehicle", function ( ply )
-		return unoLimited.handler( ply, "vehicles" )
+		if !unoLimited.handler( ply, "vehicles" ) then
+			return false
+		end
 	end)
 	
 	-- Setup Spawn NPC Handler
 	hook.Add( "PlayerSpawnNPC", "UnoLimited-NPC", function( ply )
-		return unoLimited.handler( ply, "npcs" )
+		 if !unoLimited.handler( ply, "npcs" )  then
+			return false
+		 end
 	end)
 	
 	-- Setup Spawn SENT Handler
 	hook.Add( "PlayerSpawnSENT", "UnoLimited-SENT", function( ply )
-		return unoLimited.handler( ply, "sents" )
+		if !unoLimited.handler( ply, "sents" ) then
+			return false
+		end
 	end)
 else
 	Msg( "\n ** UnoLimited v"..unoLimited.version.." REQUIRES ULX v3.51+ .. Aborting\n\n" )
