@@ -17,6 +17,8 @@
 		"LICENSE",
 		"README.md",
 		"logo.jpg",
-		"logo.fw.png"
+		"logo.fw.png",
+		"*.md",
+		"*.bat"
 	]
 }
