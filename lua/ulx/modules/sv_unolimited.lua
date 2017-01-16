@@ -17,7 +17,7 @@
 -- Former Contributors: Megiddo and JamminR
 --
 -- $Id$
--- Version 2.5.1 - 19-10-2013 12:51 PM
+-- Version 2.5.2 - 2017-16-01 09:50 PM by Nexus [BR]
 
 -- check if ULIB is Loaded
 if ULib ~= nil then
@@ -40,7 +40,7 @@ if ULib ~= nil then
 		if not game.SinglePlayer() or unoLimited.groups[ group ] ~= nil then
 			-- Get Limit Multiplier
 			local mult = tonumber( unoLimited.groups[ group ] )				
-			
+
 			-- Check if Limits was Disabled
 			if mult == -1 then
 				-- Return -1 to disable Limits
@@ -59,7 +59,7 @@ if ULib ~= nil then
 			-- Define Standard Limit
 			finalLimit = 1
 		end
-		
+				
 		-- Return the Current Limit
 		return finalLimit
 	end
@@ -113,42 +113,42 @@ if ULib ~= nil then
 	
 	-- Setup Spawn Ragdoll Handler
 	hook.Add( "PlayerSpawnRagdoll","UnoLimited-Ragdoll", function ( ply )
-		if !unoLimited.handler( ply, "ragdolls" ) then
+		if not unoLimited.handler( ply, "ragdolls" ) then
 			return false
 		end
 	end)
 	
 	-- Setup Spawn Prop Handler
 	hook.Add( "PlayerSpawnProp", "UnoLimited-Prop", function ( ply )
-		if !unoLimited.handler( ply, "props" ) then
+		if not unoLimited.handler( ply, "props" ) then
 			return false
 		end
 	end)
 	
 	-- Setup Spawn Effect Handler
 	hook.Add( "PlayerSpawnEffect", "UnoLimited-Effect", function ( ply )
-		if !unoLimited.handler( ply, "effects" ) then
+		if not unoLimited.handler( ply, "effects" ) then
 			return fase
 		end
 	end)
 	
 	-- Setup Spawn Vehicle Handler
 	hook.Add( "PlayerSpawnVehicle", "UnoLimited-Vehicle", function ( ply )
-		if !unoLimited.handler( ply, "vehicles" ) then
+		if not unoLimited.handler( ply, "vehicles" ) then
 			return false
 		end
 	end)
 	
 	-- Setup Spawn NPC Handler
 	hook.Add( "PlayerSpawnNPC", "UnoLimited-NPC", function( ply )
-		 if !unoLimited.handler( ply, "npcs" )  then
+		 if not unoLimited.handler( ply, "npcs" )  then
 			return false
 		 end
 	end)
 	
 	-- Setup Spawn SENT Handler
 	hook.Add( "PlayerSpawnSENT", "UnoLimited-SENT", function( ply )
-		if !unoLimited.handler( ply, "sents" ) then
+		if not unoLimited.handler( ply, "sents" ) then
 			return false
 		end
 	end)

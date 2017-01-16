@@ -17,12 +17,12 @@
 -- Former Contributors: Megiddo and JamminR
 --
 -- $Id$
--- Version 2.5.1 - 19-10-2013 12:51 PM
+-- Version 2.5.2 - 2017-16-01 09:50 PM by Nexus [BR]
 
 -- Setup Main Vars
 unoLimited = {}
 unoLimited.groups = { superadmin = -1, admin = 2, operator = 1.5 }
-unoLimited.version = "2.5.1"
+unoLimited.version = "2.5.2"
 unoLimited.accessFlag = "unolimited manager"
 
 -- Send Files to Client 
