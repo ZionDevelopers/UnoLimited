@@ -35,9 +35,6 @@ if ULib ~= nil then
 		
 		-- Default Limit is 1x
 		local finalLimit = GetConVarNumber( "sbox_max"..str )		
-		    
-    print("Current " .. str .. " limit")
-    print(finalLimit)
 		
 		-- Check if Game is Singleplayer and Group is Set
 		if not game.SinglePlayer() or unoLimited.groups[ group ] ~= nil then
@@ -62,9 +59,6 @@ if ULib ~= nil then
 			-- Define Standard Limit
 			finalLimit = 1
 		end
-		
-    print("Final limit")
-    print(finalLimit)
 				
 		-- Return the Current Limit
 		return finalLimit
@@ -119,44 +113,32 @@ if ULib ~= nil then
 	
 	-- Setup Spawn Ragdoll Handler
 	hook.Add( "PlayerSpawnRagdoll","UnoLimited-Ragdoll", function ( ply )
-		if not unoLimited.handler( ply, "ragdolls" ) then
-			return false
-		end
+    return unoLimited.handler( ply, "ragdolls" )
 	end)
 	
 	-- Setup Spawn Prop Handler
 	hook.Add( "PlayerSpawnProp", "UnoLimited-Prop", function ( ply )
-		if not unoLimited.handler( ply, "props" ) then
-			return false
-		end
+		return unoLimited.handler( ply, "props" )
 	end)
 	
 	-- Setup Spawn Effect Handler
 	hook.Add( "PlayerSpawnEffect", "UnoLimited-Effect", function ( ply )
-		if not unoLimited.handler( ply, "effects" ) then
-			return fase
-		end
+		return unoLimited.handler( ply, "effects" )
 	end)
 	
 	-- Setup Spawn Vehicle Handler
 	hook.Add( "PlayerSpawnVehicle", "UnoLimited-Vehicle", function ( ply )
-		if not unoLimited.handler( ply, "vehicles" ) then
-			return false
-		end
+		return unoLimited.handler( ply, "vehicles" )
 	end)
 	
 	-- Setup Spawn NPC Handler
 	hook.Add( "PlayerSpawnNPC", "UnoLimited-NPC", function( ply )
-		 if not unoLimited.handler( ply, "npcs" )  then
-			return false
-		 end
+		  return unoLimited.handler( ply, "npcs" )
 	end)
 	
 	-- Setup Spawn SENT Handler
 	hook.Add( "PlayerSpawnSENT", "UnoLimited-SENT", function( ply )
-		if not unoLimited.handler( ply, "sents" ) then
-			return false
-		end
+		return unoLimited.handler( ply, "sents" )
 	end)
 else
 	Msg( "\n ** UnoLimited v"..unoLimited.version.." REQUIRES ULX v3.51+ .. Aborting\n\n" )
