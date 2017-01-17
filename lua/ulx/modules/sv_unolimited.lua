@@ -34,7 +34,10 @@ if ULib ~= nil then
 		local group = ply:GetUserGroup()
 		
 		-- Default Limit is 1x
-		local finalLimit = GetConVarNumber( "sbox_max"..str )
+		local finalLimit = GetConVarNumber( "sbox_max"..str )		
+		    
+    print("Current " .. str .. " limit")
+    print(finalLimit)
 		
 		-- Check if Game is Singleplayer and Group is Set
 		if not game.SinglePlayer() or unoLimited.groups[ group ] ~= nil then
@@ -59,6 +62,9 @@ if ULib ~= nil then
 			-- Define Standard Limit
 			finalLimit = 1
 		end
+		
+    print("Final limit")
+    print(finalLimit)
 				
 		-- Return the Current Limit
 		return finalLimit
@@ -76,7 +82,7 @@ if ULib ~= nil then
 		
 		-- Check if Player hit the Spawn Count
 		if ply:GetCount( str ) < limit or limit < 0 then
-			return true
+      return true
 		end
 		
 		-- Send a Hint about the Hit to player
