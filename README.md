@@ -19,7 +19,7 @@ Simply clone this repository into your `addons` folder:
     cd "%programfiles(x86)%/Steam/SteamApps/common/GarrysMod/garrysmod/addons"
     git clone https://github.com/ZionDevelopers/UnoLimited.git UnoLimited
 
-#### License
+### License
 
 This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
 To view a copy of this license, visit [Common Creative's Website][License].
