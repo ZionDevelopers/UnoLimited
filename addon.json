@@ -15,7 +15,6 @@
 		"git-hooks-pre-commit",
 		"gitrid.sh",
 		"LICENSE",
-		"README.md",
 		"*.jpg",
 		"*.png",
 		"*.md",
