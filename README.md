@@ -2,7 +2,7 @@ UnoLimited
 =====
 
 UnoLimited is a ULX Module for increase or disable spawn limits for defined ULib Groups.
-It's a addon for [Garry's Mod][].
+This is a game addon for [Garry's Mod][] servers, NOT FOR SINGLEPLAYER!
 
 ### Setup
 
@@ -10,7 +10,7 @@ Just download this addon by clicking on Download ZIP and extract the addon in ``
 
 ### Workshop Ready!
 
-UnoLimited is now available via the Steam Workshop! Go to [its Workshop page][workshop] and press `Subscribe`, and it will automatically appear in Garry's Mod.
+UnoLimited is now available via the Steam Workshop! Go to [its Workshop page][workshop].
 
 ### Manual Installation
 
