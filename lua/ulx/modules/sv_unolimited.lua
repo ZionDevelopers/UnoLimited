@@ -49,6 +49,9 @@ if ULib ~= nil then
 			elseif mult > 0 then			
 				-- The Final Limit Calculation
 				finalLimit = math.floor( mult * GetConVarNumber( "sbox_max" .. str ) )
+			-- Check if Multiplier is zero
+			elseif mult == 0 then
+				finalLimit = 0
 			end
 		-- Check if Game is SinglePlayer
 		elseif game.SinglePlayer() then
@@ -75,8 +78,8 @@ if ULib ~= nil then
 		end
 		
 		-- Check if Player hit the Spawn Count
-		if ply:GetCount( str ) < limit or limit < 0 then
-      return true
+		if limit > ply:GetCount( str ) and limit > 0 then
+			return true
 		end
 		
 		-- Send a Hint about the Hit to player
