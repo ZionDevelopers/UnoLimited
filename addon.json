@@ -15,6 +15,7 @@
 		"git-hooks-pre-commit",
 		"gitrid.sh",
 		"LICENSE",
+		"COPYING",
 		"*.jpg",
 		"*.png",
 		"*.md",
