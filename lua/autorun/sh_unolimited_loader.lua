@@ -1,29 +1,45 @@
--- UnoLimited
--- Copyright (c) 2013 Nexus [BR] <http://www.nexusbr.net>
---
--- This program is free software: you can redistribute it and/or modify
--- it under the terms of the GNU General Public License as published by
--- the Free Software Foundation, either version 2 of the License, or
--- (at your option) any later version.
---
--- This program is distributed in the hope that it will be useful,
--- but WITHOUT ANY WARRANTY; without even the implied warranty of
--- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
--- GNU General Public License for more details.
---
--- You should have received a copy of the GNU General Public License
--- along with this program.  If not, see <http://www.gnu.org/licenses/>.
---
--- Former Contributors: Megiddo and JamminR
---
--- $Id$
--- Version 2.5.2 - 2017-16-01 09:50 PM by Nexus [BR]
+--[[ 
+ UnoLimited
+ 
+ Copyright (c) 2013-2023 Dathus [BR] <https://www.juliocesar.me> <http://steamcommunity.com/profiles/76561197983103320>
+ 
+ This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
+ To view a copy of this license, visit Common Creative's Website. <https://creativecommons.org/licenses/by-nc-sa/4.0/>
+ 
+ Former Contributors: Megiddo and JamminR
+ 
+ $Id$
+ Version 2.5 by Dathus [BR] on 2023-06-06 09:30 PM (GMT -03)
+]]--
 
 -- Setup Main Vars
 unoLimited = {}
 unoLimited.groups = { superadmin = -1, admin = 2, operator = 1.5 }
-unoLimited.version = "2.5.2"
+unoLimited.version = "2.5.3"
 unoLimited.accessFlag = "unolimited manager"
+
+--Setup Loading Log Formatation
+function loadingLog (text)
+  --Set Max Size
+  local size = 32
+  --If Text Len < max size
+  if(string.len(text) < size) then
+    -- Format the text to be Text+Spaces*LeftSize
+    text = text .. string.rep( " ", size-string.len(text) )
+  else
+    --If Text is too much big then cut and add ...
+    text = string.Left( text, size-3 ) .. "..."
+  end
+  --Log Messsage
+  Msg( "||  "..text.."||\n" )
+end
+
+Msg( "\n/====================================\\\n")
+Msg( "||             UnoLimited           ||\n" )
+Msg( "||----------------------------------||\n" )
+loadingLog("Version " .. unoLimited.version)
+loadingLog("Updated on 2023-06-06 9:30 PM")
+Msg( "\\====================================/\n\n" )
 
 -- Send Files to Client 
 AddCSLuaFile()

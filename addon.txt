@@ -1,11 +1,10 @@
 "AddonInfo"
 {
 	"name"				"Ulysses NoLimited"
-	"version"			"2.5"
-	"up_date"			"19/10/2013"
-	"author_name"			"Nexus [BR]"
-	"author_email"			"talk@nexusbr.net"
-	"author_url"			"http://www.nexusbr.net/"
+	"version"			"2.5.3"
+	"up_date"			"2023-06-06"
+	"author_name"			"Dathus [BR]"	
+	"author_url"			"http://www.juliocesar.me/"
 	"info"				"Allow admins to change User Groups Spawn Limits"
 	"override"			"0"
 }
