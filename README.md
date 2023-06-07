@@ -1,10 +1,10 @@
 ![Logo](https://raw.githubusercontent.com/ZionDevelopers/UnoLimited/master/logo.jpg)
 
-UnoLimited
-=====
-
 UnoLimited is a ULX Module for increase or disable spawn limits for defined ULib Groups.
 This is a game addon for [Garry's Mod][] servers, NOT FOR SINGLEPLAYER!
+
+### Requirements
+Updated addons [ULX][] and [ULIB][]
 
 ### Setup
 
@@ -30,3 +30,5 @@ To view a copy of this license, visit [Common Creative's Website][License].
 [workshop]: <http://steamcommunity.com/sharedfiles/filedetails/?id=187192556>
 [Exsto]: <https://github.com/prefanatic/exsto>
 [License]: <https://creativecommons.org/licenses/by-nc-sa/4.0/>
+[ULX]: <https://github.com/TeamUlysses/ulx>
+[ULIB]: <https://github.com/TeamUlysses/ulib>
