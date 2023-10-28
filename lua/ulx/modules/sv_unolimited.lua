@@ -32,7 +32,7 @@ if ULib ~= nil then
 		-- Check if Game is Singleplayer and Group is Set
 		if not game.SinglePlayer() or unoLimited.groups[ group ] ~= nil then
 			-- Get Limit Multiplier
-			local mult = tonumber( unoLimited.groups[ group ] )				
+			local mult = tonumber( unoLimited.groups[ group ] ) or 0				
 
 			-- Check if Limits was Disabled
 			if mult == -1 then
