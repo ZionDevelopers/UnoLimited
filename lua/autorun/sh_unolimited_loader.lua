@@ -9,13 +9,13 @@
  Former Contributors: Megiddo and JamminR
  
  $Id$
- Version 2.5 by Dathus [BR] on 2023-06-06 09:30 PM (GMT -03)
+ Version 2.5 by Dathus [BR] on 2023-10-29 01:15 AM (GMT -03)
 ]]--
 
 -- Setup Main Vars
 unoLimited = {}
 unoLimited.groups = { superadmin = -1, admin = 2, operator = 1.5 }
-unoLimited.version = "2.5.3"
+unoLimited.version = "2.5.4"
 unoLimited.accessFlag = "unolimited manager"
 
 --Setup Loading Log Formatation

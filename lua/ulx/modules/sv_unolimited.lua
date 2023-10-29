@@ -15,9 +15,6 @@
 -- check if ULIB is Loaded
 if ULib ~= nil then
 	
-	-- Show StartUp Info
-	Msg( "//  UnoLimited v" .. unoLimited.version .. "        //\n")
-	
 	-- Register ULIB Flag
 	ULib.ucl.registerAccess( unoLimited.accessFlag, { "superadmin" }, "Give Manager Access to UnoLimited", "UnoLimited" )
 
@@ -30,7 +27,7 @@ if ULib ~= nil then
 		local finalLimit = GetConVarNumber( "sbox_max"..str )		
 		
 		-- Check if Game is Singleplayer and Group is Set
-		if not game.SinglePlayer() or unoLimited.groups[ group ] ~= nil then
+		if not game.SinglePlayer() and unoLimited.groups[ group ] ~= nil then
 			-- Get Limit Multiplier
 			local mult = tonumber( unoLimited.groups[ group ] )				
 
@@ -53,7 +50,7 @@ if ULib ~= nil then
 		-- check if group is not set
 		elseif unoLimited.groups[ group ] == nil then
 			-- Define Standard Limit
-			finalLimit = 1
+			finalLimit = math.floor( GetConVarNumber( "sbox_max" .. str ) )
 		end
 				
 		-- Return the Current Limit

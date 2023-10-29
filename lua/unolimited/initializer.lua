@@ -9,7 +9,7 @@
  Former Contributors: Megiddo and JamminR
  
  $Id$
- Version 2.5 by Dathus [BR] on 2023-06-06 09:30 PM (GMT -03)
+ Version 2.5 by Dathus [BR] on 2023-10-29 01:15 AM (GMT -03)
 ]]--
 
 -- Add Net ID to the Pool
@@ -29,5 +29,30 @@ unoLimited.loadSave()
 
 -- Send Limits to Player
 hook.Add( "PlayerInitialSpawn", "UnoLimited-Send", unoLimited.sendLimits )
+hook.Add("UCLChanged", "UnoLimited-Check-Groups", function () 
+  local groupsUpdated = false
+  -- Loop by groups
+  for group, g in pairs(ULib.ucl.groups) do
+    -- Check if group does not exists in the table
+    if unoLimited.groups[group] == nil then
+      -- Add group to the table
+      unoLimited.groups[group] = 1
+      -- Update flag
+      groupsUpdated = true
+    end
+  end
+  
+  -- Check if groups was updated
+  if groupsUpdated then
+    -- Save the file
+    unoLimited.save()
+   
+    local players = player.GetAll() -- get the list of players
+    for _, ply in ipairs(players) do -- loop through the table
+        unoLimited.sendLimits(ply)
+    end
+  end
+end)
+
 -- Receive Player's Limits
 net.Receive( "UnoLimited", unoLimited.receiveLimits )
