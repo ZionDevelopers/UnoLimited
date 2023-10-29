@@ -1,8 +1,8 @@
 "AddonInfo"
 {
-	"name"				"Ulysses NoLimited"
-	"version"			"2.5.3"
-	"up_date"			"2023-06-06"
+	"name"				"UnoLimited"
+	"version"			"2.5.4"
+	"up_date"			"2023-10-29"
 	"author_name"			"Dathus [BR]"	
 	"author_url"			"http://www.juliocesar.me/"
 	"info"				"Allow admins to change User Groups Spawn Limits"
