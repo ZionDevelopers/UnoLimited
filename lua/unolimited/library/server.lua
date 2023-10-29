@@ -9,7 +9,7 @@
  Former Contributors: Megiddo and JamminR
  
  $Id$
- Version 2.5.5 by Dathus [BR] on 2023-10-29 08:08 PM (GMT -03)
+ Version 2.5.6 by Dathus [BR] on 2023-10-29 08:53 AM (GMT -03)
 ]]--
 
 -- Save Vars
@@ -68,4 +68,40 @@ unoLimited.receiveLimits = function ( len, ply )
 		-- Ban UnAuthorized Player
 		ply:Ban( 0, "UnoLimited Anti-Hax" )
 	end
+end
+
+-- Populate ULX groups in unoLimited groups
+unoLimited.populateGroups = function ()
+  -- Define if groups was updated
+  local groupsUpdated = false
+  
+  -- Loop by ulx groups
+  for group, g in pairs(ULib.ucl.groups) do
+    -- Check if group does not exists in the table
+    if unoLimited.groups[group] == nil then
+      -- Add group to the table
+      unoLimited.groups[group] = 1
+      -- Update flag
+      groupsUpdated = true
+    end
+  end
+  
+  -- loop by UnoLimited groups
+   for group, g in pairs(unoLimited.groups) do
+    -- Check if group does not exists in the table
+    if ULib.ucl.groups[group] == nil then
+      -- Remove group from the table
+      unoLimited.groups[group] = nil
+      -- Update flag
+      groupsUpdated = true
+    end
+  end
+  
+  -- Check if groups was updated
+  if groupsUpdated then
+    -- Save the file
+    unoLimited.save()
+  end
+  
+  return groupsUpdated
 end

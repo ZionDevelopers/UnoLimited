@@ -9,13 +9,13 @@
  Former Contributors: Megiddo and JamminR
  
  $Id$
- Version 2.5.5 by Dathus [BR] on 2023-10-29 08:08 PM (GMT -03)
+ Version 2.5.6 by Dathus [BR] on 2023-10-29 08:53 AM (GMT -03)
 ]]--
 
 -- Setup Main Vars
 unoLimited = {}
 unoLimited.groups = { superadmin = -1, admin = 2, operator = 1.5 }
-unoLimited.version = "2.5.5"
+unoLimited.version = "2.5.6"
 unoLimited.accessFlag = "unolimited manager"
 
 --Setup Loading Log Formatation
@@ -38,7 +38,7 @@ Msg( "\n/====================================\\\n")
 Msg( "||             UnoLimited           ||\n" )
 Msg( "||----------------------------------||\n" )
 loadingLog("Version " .. unoLimited.version)
-loadingLog("Updated on 2023-10-29 8:08 AM")
+loadingLog("Updated on 2023-10-29 8:53 AM")
 Msg( "\\====================================/\n\n" )
 
 -- Send Files to Client 
