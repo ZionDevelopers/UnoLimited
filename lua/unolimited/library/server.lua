@@ -9,7 +9,7 @@
  Former Contributors: Megiddo and JamminR
  
  $Id$
- Version 2.5 by Dathus [BR] on 2023-06-06 09:30 PM (GMT -03)
+ Version 2.5.5 by Dathus [BR] on 2023-10-29 08:08 PM (GMT -03)
 ]]--
 
 -- Save Vars
